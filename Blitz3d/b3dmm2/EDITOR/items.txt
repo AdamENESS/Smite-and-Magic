@@ -1,0 +1,256 @@
+0: BLANK       
+1: Small Club  
+2: Small Knife 
+3: Large Club  
+4: Dagger      
+5: Large Knife 
+6: Hand Axe    
+7: Cudgel      
+8: Spiked Club 
+9: Bull Whip   
+10: Long Dagger 
+11: Maul        
+12: Short Sword 
+13: Nunchakas   
+14: Mace        
+15: Spear       
+16: Cutlass     
+17: Flail       
+18: Sabre       
+19: Long Sword  
+20: Wakizashi   
+21: Scimitar    
+22: Battle Axe  
+23: Broad Sword 
+24: Katana      
+25: Slumber Club
+26: Power Club  
+27: Lucky Knife 
+28: Looter Knife
+29: Power Cudgel
+30: Energy Whip 
+31: Sonic Whip  
+32: Mighty Whip 
+33: Scorch Maul 
+34: Mauler Mace 
+35: Exacto Spear
+36: Fiery Spear 
+37: Fast Cutlass
+38: Quick Flail 
+39: Shock Flail 
+40: Sharp Sabre 
+41: Ego Scimitar
+42: True Axe    
+43: Blazing Axe 
+44: Electric Axe
+45: Rapid Katana
+46: Accurate Swd
+47: Chance Sword
+48: Speedy Sword
+49: Flash Sword 
+50: Flaming Swd 
+51: Electric Swd
+52: Acidic Sword
+53: Cold Blade  
+54: Sage Dagger 
+55: Holy Cudgel 
+56: Divine Mace 
+57: Ice Scimitar
+58: Grand Axe   
+59: Swift Axe   
+60: Dyno Katana 
+61: Force Sword 
+62: Magic Sword 
+63: Thunder Swd 
+64: Energy Blade
+65: Photon Blade
+66: Staff       
+67: Sickle      
+68: Scythe      
+69: Glaive      
+70: War Hammer  
+71: Trident     
+72: Pike        
+73: Naginata    
+74: Bardiche    
+75: Great Hammer
+76: Halberd     
+77: Great Axe   
+78: Flamberge   
+79: Wind Staff  
+80: Tri-Sickle  
+81: Ice Sickle  
+82: Fire Glaive 
+83: Harsh Hammer
+84: Stone Hammer
+85: Genius Staff
+86: Wizard Staff
+87: Soul Scythe 
+88: Dark Trident
+89: Titan's Pike
+90: Moon Halberd
+91: Sun Naginata
+92: Blowpipe    
+93: Sling       
+94: Short Bow   
+95: Crossbow    
+96: Long Bow    
+97: Great Bow   
+98: Shaman Pipe 
+99: Cinder Pipe 
+100: Quiet Sling 
+101: Pirates xBow
+102: Burning xBow
+103: Fireball Bow
+104: Voltage Bow 
+105: Giant Sling 
+106: Energy Sling
+107: Death Bow   
+108: Star Bow    
+109: Meteor Bow  
+110: Ancient Bow 
+111: Green Key   
+112: Yellow Key  
+113: Red Key     
+114: Black Key   
+115: Small Shield
+116: Large Shield
+117: Great Shield
+118: Fire Shield 
+119: Electric Shd
+120: Acid Shield 
+121: Cold Shield 
+122: Silver Shld 
+123: Bronze Shld 
+124: Iron Shield 
+125: Magic Shield
+126: Gold Shield 
+127: Padded Armor
+128: Leather Suit
+129: Scale Armor 
+130: Ring Mail   
+131: Chain Mail  
+132: Splint Mail 
+133: Plate Mail  
+134: Plate Armor 
+135: I Scale Mail
+136: B Scale Mail
+137: S Scale Mail
+138: I Ring Mail 
+139: B Ring Mail 
+140: S Ring Mail 
+141: I Chain Mail
+142: B Chain Mail
+143: S Chain Mail
+144: I Splintmail
+145: B Splintmail
+146: S Splintmail
+147: I Plate Mail
+148: B Plate Mail
+149: S Plate Mail
+150: G Scale Mail
+151: G Ring Mail 
+152: G Chain Mail
+153: G Splintmail
+154: G Plate Mail
+155: Helm        
+156: Iron Helm   
+157: Bronze Helm 
+158: Silver Helm 
+159: Gold Helm   
+160: Magic Herbs 
+161: Torch       
+162: Lantern     
+163: Thief's Pick
+164: Rope'n'Hooks
+165: Wakeup Horn 
+166: Compass     
+167: Sextant     
+168: Force Potion
+169: Skill Potion
+170: MaxHP Potion
+171: Holy Charm  
+172: Herbal Patch
+173: Hero Medal  
+174: Silent Horn 
+175: Magic Meal  
+176: Antidote Ale
+177: Super Flare 
+178: Dove's Blood
+179: Ray Gun     
+180: Magic Charm 
+181: Witch Broom 
+182: Invisocloak 
+183: Storm Wand  
+184: Lava Grenade
+185: Hourglass   
+186: Instant Keep
+187: Teleport Orb
+188: Skeleton Key
+189: Defense Ring
+190: Mgt Gauntlet
+191: Acy Gauntlet
+192: Stealth Cape
+193: Admit 8 Pass
+194: Speed Boots 
+195: Cureall Wand
+196: Moon Rock   
+197: Ruby Ankh   
+198: Disruptor   
+199: Lich Hand   
+200: Phaser      
+201: Freeze Wand 
+202: Energizer   
+203: Magic Mirror
+204: Elven Cloak 
+205: Elven Boots 
+206: Sage Robe   
+207: Enchanted Id
+208: Green Ticket
+209: Yellow Tickt
+210: Red Ticket  
+211: Black Ticket
+212: Fe Farthing 
+213: Castle Key  
+214: Mark's Keys 
+215: Dog Whistle 
+216: Web Caster  
+217: Monster Tome
+218: Cupie Doll  
+219: Water Talon 
+220: Air Talon   
+221: Fire Talon  
+222: Earth Talon 
+223: Element Orb 
+224: Gold Goblet 
+225: +7 Loincloth
+226: Valor Sword 
+227: Honor Sword 
+228: Noble Sword 
+229: Corak's Soul
+230: Emerald Ring
+231: Water Disc  
+232: Air Disc    
+233: Fire Disc   
+234: Earth Disc  
+235: Sapphire Pin
+236: Amethyst Box
+237: Coral Broach
+238: Lapis Scarab
+239: Amber Skull 
+240: Quartz Skull
+241: Agate Grail 
+242: Opal Pendant
+243: Crystal Vial
+244: Ruby Amulet 
+245: Ivory Cameo 
+246: Ruby Tiara  
+247: Onyx Effigy 
+248: Pearl Choker
+249: Topaz Shard 
+250: Sun Crown   
+251: J-26 Fluxer 
+252: M-27 Radicon
+253: A-1 Todilor 
+254: N-19 Capitor
+255: Useless Item

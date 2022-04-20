@@ -1,0 +1,39 @@
+Graphics 320,240
+Type event
+Field area
+Field X,Y,Direction
+Field Eventcode
+End Type
+
+Type etext
+Field area
+Field eventText$
+End Type
+
+fi=OpenFile("data/event.dat")
+
+For a=0 To 70
+b1=ReadByte(fi)
+b2=ReadByte(fi)
+b3=ReadByte(fi)
+b4=ReadByte(fi)
+b5=ReadByte(fi)
+b6=ReadByte(fi)
+off=b4+(b3*256)+(b2*256*256)+(b1*256*256)
+size=(b6+(b5*256))
+DebugLog a+":"+off+" "+size+" "+(off+Size)
+fp=FilePos(fi)
+SeekFile(fi,off)
+done=False
+d=0
+While done=False
+temp=ReadByte(fi)
+d=d+1
+If temp=255 done=True
+Wend
+DebugLog d
+SeekFile(fi,fp)
+
+Next
+WaitKey
+

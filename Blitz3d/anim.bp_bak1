@@ -1,0 +1,6 @@
+fi=OpenFile("34.anm")
+fo=WriteFile("anim.log")
+Repeat 
+temp=ReadByte(fi)
+WriteLine fo,temp +" "+Hex(temp)
+Until Eof(fi)

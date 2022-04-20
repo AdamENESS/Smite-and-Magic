@@ -1,0 +1,96 @@
+Include "datapak.bp"
+
+Type Army
+	Field id
+	Field name$
+	Field HP
+	Field SP
+	Field AC
+	Field Pabil,SAbil,Oabil
+	Field Abil1
+	Field Abil2
+	Field xp
+	Field Gold
+	Field gems
+	Field MRes
+	Field damage
+	Field Picture
+	Field Undead
+	Field Archer
+	Field flee
+	Field speed
+	;temp
+	Field Colour
+End Type
+
+Type Monster
+	Field ID
+	Field Name$
+	Field dbank
+End Type
+
+Function loadmonsters()
+monst=getfile("data\monsters.dat","data.mpf")
+For a=0 To 255
+mon.monster=New monster
+mon\ID=a
+mon\dbank=CreateBank(26)
+CopyBank(monst,a*26,mon\dbank,0,26)
+; extract the name since it in "encrypted" ;)
+
+For n=0 To 13
+	temp=PeekByte(mon\dbank,n)
+	ch$=Chr(temp-128)
+	If ch$<>" "	mon\name$=mon\name$+ch$
+Next 
+DebugLog mon\name$
+Next
+
+End Function
+
+Function decryptHP(temp%)
+If temp<71
+		hp=temp+1
+	Else If temp>70 And temp<134
+		hp=70+((temp-70)*10)
+	Else If temp>133 And temp<178
+		hp=700+((temp-134)*100)
+	Else If temp>177 
+			hp=64000-(255-temp)*1000
+	End If
+Return HP
+End Function
+
+Function decryptXP(tempe%)
+If tempe<62
+	exper=60+((tempe-37)*10)
+	Else If tempe<128
+	exper=200+((tempe-65)*100)
+	Else If tempe<138
+	exper=1000+((tempe-128)*1000)
+	Else If tempe<160
+	exper=10000+((tempe-137)*1000)
+	Else If tempe<190
+	exper=10000+((tempe-160)*10000)
+	Else If tempe<220
+	exper=0000+((tempe-191)*10000)
+	Else
+	exper=10000+((tempe-224)*10000)
+
+	EndIf
+	Return exper
+End Function
+
+Function addmonst(ID%)
+For m.monster=Each monster
+	If m\ID=ID
+		bm.army=New army	
+		bm\name=m\name$
+		bm\HP=decryptHP(PeekByte(m\dbank,14))
+		bm\XP=decryptXP(PeekByte(m\dbank,15))
+		DebugLog bm\name$+" "+bm\HP+" "+bm\XP
+		Return 1
+	EndIf
+Next
+	Return 0
+End Function

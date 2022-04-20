@@ -1,0 +1,321 @@
+DESCRIPTION: Creates a frightening apparition in the mosters memory
+causing them to be afraid, reducing their chance to hit.
+
+DESCRIPTION: Awakens all sleeping members of the party,
+instantaneously cancelling the sleep condition. May be critical if
+party is attacked during rest.
+
+DESCRIPTION: Increases the accuracy with which all characters fight,
+for the duration of combat.
+
+DESCRIPTION: Heals minor battle wounds, restoring 8 Hit Points to that
+character.
+
+DESCRIPTION: Gives the party 1 light factor, which is sufficient to
+light up 1 dark area. Multiple light spells can be cast to accumulate
+multiple light factors.
+
+DESCRIPTION: Restores character's health and 1-10 Hit Points per
+experience level of caster.
+
+DESCRIPTION: Destroys some or all undead monsters, depending on
+caster's experience level and monster's power level.
+
+DESCRIPTION: Cures more serious wounds, restoring
+15 Hit Points to the character.
+
+DESCRIPTION: Temporarily elevates a character 6 levels of experience.
+Spell lasts for the duration of combat.
+
+DESCRIPTION: Using the forces of nature, opens a portal between two
+locations in the land of Cron. These locations vary with time
+(days/years).
+
+DESCRIPTION: Cripples monster with pain, inflicting 2-16 damage
+points, unless the monster is immune to pain.
+
+DESCRIPTION: Increases all character's resistance to fear, cold, fire,
+poison, acid and electricity. Amount of the increase depends on the
+caster's experience level. Spell lasts 1 day.
+
+DESCRIPTION: Prevents the monsters from casting spells for the
+duration of combat, or until they overcome the spell.
+
+DESCRIPTION: Weakens all monsters affected, reducing their physical
+damage by half until the spell is overcome.
+
+DESCRIPTION: Attacks with a ray of intensive cold that penetrates to
+the monsters heart and inflicts 25 points of damage to each monster
+affected.
+
+DESCRIPTION: Adds 8 food units to caster's food supply. Caster may
+then distribute food among other party members, if he/she desires.
+
+DESCRIPTION: Flushes poison out of a character's system,
+instantaneously removing the poisoned condition.
+
+DESCRIPTION: Immobilizes any monster affected.
+
+DESCRIPTION: Bestows 20 light factors on the party, for use in
+dispelling darkness.
+
+DESCRIPTION: Creates a floating sand dune upon which the party may
+walk on. Lasts 1 day.
+
+DESCRIPTION: Sprays a corrosive stream of acid inflicting 6-60 points
+of damage, unless immune to acid.
+
+DESCRIPTION: Transforms the party into air, allowing the exploration
+of the elemental plane of air.
+
+DESCRIPTION: Restores full health to sick character, instantaneously
+removing the diseased condition.
+
+DESCRIPTION: Restores a character's original alignment, after actions
+and responses have caused it to shift.
+
+DESCRIPTION: Instantly transports all party members from an
+underground location to grounds surface.
+
+DESCRIPTION: The generous forces of the cleric's deity increase the
+damage done by party members by 1 point per 2 levels of the caster.
+
+DESCRIPTION: Encases the target in a field of air, inflicting 10
+points of damage per combat round and separating it from the battle
+until the spell is overcome or the monster is attacked.
+
+DESCRIPTION: Sends a swarm of killer insects against the monsters,
+inflicting 4-40 damage points against each monster.
+
+DESCRIPTION: Sends one party member into a frenzy, allowing him/her to
+attack all the monsters on the screen. Drained from the experience,
+the character loses 1 point of endurance and is then rendered
+unconscious.
+
+DESCRIPTION: Attempts to immobilize all monsters and prevent them from
+fighting. May be partially or completely effective on some or all
+monsters.
+
+DESCRIPTION: Releases character from all undesirable conditions except
+dead, stoned or eradicated.
+
+DESCRIPTION: Transforms the party into earth, allowing the exploration
+of the elemental plane of earth.
+
+DESCRIPTION: A fountain of youth that trims 1-10 years off a
+character's age, restoring his/her abilities to the younger level.
+Spell carries some risk of producing the opposite effect.
+
+DESCRIPTION: Re-animates a character who has been turned to stone,
+removing the stoned condition.
+
+DESCRIPTION: Encases the target in a field of water, inflicting 20
+points of damage per combat round and separating it from the battle
+until the spell is overcome or the monster is attacked.
+
+DESCRIPTION: Transforms the party into water, allowing the exploration
+of the elemental plane of water.
+
+DESCRIPTION: Encases the target in a field of earth, inflicting 40
+points of damage per combat round and separating it from the battle
+until the spell is overcome or the monster is attacked.
+
+DESCRIPTION: Creates a huge flail of fire, striking a single opponent,
+inflicting 100-400 points of damage.
+
+DESCRIPTION: Bathes all combatants in a beneficent ray that bestows
+10-100 Hit Points on each character and removes 10-100 Hit Points from
+each monster.
+
+DESCRIPTION: Brings the character back to life, removing the dead
+condition. Spell carries a moderate chance of failure and a remote
+chance of eradicating the character. (Note: Spell-caster and recipient
+age by 1 year.)
+
+DESCRIPTION: Encases the target in a field of fire, inflicting 80
+points of damage per combat round and separating it from the battle
+until the spell is overcome or the monster is attacked.
+
+DESCRIPTION: Transforms the party into fire, allowing the exploration
+of the elemental plane of fire.
+
+DESCRIPTION: Increases the weight of monsters causing them to fall and
+subsequently lose half their hit points.
+
+DESCRIPTION: Opens a temporary portal to any town and moves the party
+through the portal to that town.
+
+DESCRIPTION: Intercedes with supernatural forces to restore all
+characters' Hit Points and remove all undesirable conditions, except
+eradicated. (Note: Spell-caster ages 5 years every time this spell is
+cast.)
+
+DESCRIPTION: Utters a single word of devastating power, that destroys
+all undead monsters. (Note: Ages caster 1 year.)
+
+DESCRIPTION: Removes the eradicated condition from the character,
+adding 5 years to his/her age and subtracting 1 endurance point from
+his/her vital statistics. There is a chance that the spell will fail.
+(Note: Ages caster 1 year.)
+
+DESCRIPTION: Attempts to remove the curse from an item in casters
+backpack.
+
+DESCRIPTION: Awakens all sleeping members of the party,
+instantaneously cancelling the sleep condition. May be critical if
+party is attacked during rest.
+
+DESCRIPTION: Reveals any magical items in caster's backpack, and notes
+the number of magical charges remaining in any item which must be
+charged for use. Also detects any magic surrounding or inside a chest.
+
+DESCRIPTION: Zaps the monster with a blast of pure energy, inflicting
+1-6 damage points per experience level of caster.
+
+DESCRIPTION: Sends a burning shaft into the monster, inflicting 2-8
+points of fire damage, unless monster is immune to fire.
+
+DESCRIPTION: Gives the party 1 light factor, sufficient to light a
+single darkened square. Multiple light spells can be cast, to
+accumulate light factors.
+
+DESCRIPTION: Gives precise information on party's location. Shows a
+map of the current 16xl6 area that the party has mapped and shows your
+present location on that map. May be critical when party is lost or
+magically transported. In general, this spell is the key to successful
+mapping.
+
+DESCRIPTION: Sends monsters into a deep sleep, preventing them from
+attacking. Effective until monster is damaged or overcomes the spell.
+
+DESCRIPTION: An eagle eye view of the outdoor terrain appears on the
+screen, providing a 5x5 overhead view of the area and your party's
+location.
+
+DESCRIPTION: Electrocutes a monster, inflicting 4-16 damage points,
+unless monster is immune to electrical attack.
+
+DESCRIPTION: Informs caster of the current condition of any one
+monster during combat.
+
+DESCRIPTION: Moves the party 2 squares forward, providing there are no
+magical obstructions (force fields, etc.) in the way.
+
+DESCRIPTION: Raises all characters above ground level, protecting them
+from various dangers for 1 day.
+
+DESCRIPTION: Leaves a beacon at your current location so that you may
+instantaneously return to that location the next time you cast this
+spell.
+
+DESCRIPTION: Increases all characters' resistance to magic. Amount of
+the increase depends on experience level of caster. Spell lasts 1 day.
+
+DESCRIPTION: Sprays a burning stream of acid inflicting 2-8 points of
+damage per level of caster, unless immune to acid.
+
+DESCRIPTION: Grants magical flight to all characters, allowing the
+party as a whole to move to any other outdoor area. The party will
+land in the safest square in that area.
+
+DESCRIPTION: Drops a cloak of invisibility over all characters,
+greatly decreasing the monsters' chances of hitting them.
+
+DESCRIPTION: Blasts the monsters with a gigantic lightning bolt that
+inflicts 1-6 damage points per level of caster.
+
+DESCRIPTION: Wraps monsters in a supernatural web, preventing them
+from fighting for the duration of combat or until they escape.
+
+DESCRIPTION: Uses the magical eye of a powerful wizard to show a 5x5
+overhead view of your party's location in any indoor maze.
+
+DESCRIPTION: Attacks with a beam of intense cold that penetrates to
+the monster's heart and inflicts 6 damage point per level of caster,
+unless the monsterimmune to cold.
+
+DESCRIPTION: Erases the monsters brain, removing all its abilities for
+the duration of combat or until the monster overcomes the spell.
+
+DESCRIPTION: Rolls a deadly ball of fire into the monsters' midst,
+inflicting 1-6 damage points per level of caster.
+
+DESCRIPTION: Places a supernatural guard over party, preventing
+surprise attacks for 1 day.
+
+DESCRIPTION: Creates an invisible shield which surrounds the party and
+protects all characters from most missile weapons for the duration of
+combat.
+
+DESCRIPTION: Creates a warp in time that enables the party to retreat
+safely from most battles.
+
+DESCRIPTION: Creates a powerful energy field that disrupts the
+molecular bonds of the target, inflicting 100 points of damage.
+
+DESCRIPTION: Channels the ancient power of all dead sorcerers through
+the caster, resulting in death to the monsters at whom the caster
+points a finger.
+
+DESCRIPTION: Calls upon the forces of nature to create a violent sand
+storm inflicting 1-8 points of damage per level of caster.
+
+DESCRIPTION: Provides 1 day's rest free of the danger of encounter.
+
+DESCRIPTION: Instantly moves the party from its present position, up
+to 9 squares in any direction.
+
+DESCRIPTION: Inflicts 50 damage points while disintegrating parts or
+all of the target.
+
+DESCRIPTION: Surrounds the battle with a magical energy field
+preventing all from escaping.
+
+DESCRIPTION: Shoots a fantastic beam of cold at 3 monsters,
+crystalizing them and inflicting 10 damage points per level of caster.
+
+DESCRIPTION: Restores 1-6 charges to any item in caster's backpack
+that still has 1 magical charge remaining. Some risk that the spell
+will fail and destroy the item.
+
+DESCRIPTION: Shoots an intense beam of electricity, shocking a monster
+with 20 damage points per level of caster.
+
+DESCRIPTION: A magical sword that moves with lightning speed and
+inflicts 1-12 damage points per level of caster.
+
+DESCRIPTION: Allows the caster to exactly duplicate any I item in
+his/her backpack, provided that there is room in the caster's pack for
+the new item. Small chance that the spell will fail and destroy the
+original item.
+
+DESCRIPTION: Alters all characters' molecular struture long enough to
+allow them to move 1 square forward through any barrier (force field,
+wall, mountain, etc.).
+
+DESCRIPTION: A powerful, but erratic spell that has completely
+unpredictable effects.
+
+DESCRIPTION: Engulfs a monster with the heat of a thousand fires 
+doing 20-40 damage points per level of caster.
+
+DESCRIPTION: Creates a chain of electricity connecting all opponents
+with the deadly voltage doing 4-16 damage points per level of caster.
+
+DESCRIPTION: Buries all monsters under a hail of meteors, inflicting
+5-30 damage points on each monster.
+
+DESCRIPTION: Reduces the damage inflicted on all characters by any
+attack, by 1/2. Lasts for the duration of combat.
+
+DESCRIPTION: Creates a hole in space, at the center of the target
+creature, sucking it into nothingness.
+
+DESCRIPTION: Unleashes the heat of the sun on all monsters shown,
+doing 1-20 points damage per level of caster.
+
+DESCRIPTION: Showers all monsters with pieces of an exploding star,
+doing 20-200 points of damage.
+
+DESCRIPTION: Attempts to raise the magic ability of an item by
+increasing it's '+' by 1.

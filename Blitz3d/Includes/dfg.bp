@@ -1,0 +1,4 @@
+fileout=WriteFile("temp.txt")
+WriteInt(fileout,-1)
+
+WaitKey

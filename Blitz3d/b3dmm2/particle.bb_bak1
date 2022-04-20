@@ -1,0 +1,59 @@
+; Drago's particle engine for Might and Magic 2. woot.
+Global PID,EID,PEID
+Type particle
+Field ID
+Field X#,Y#,z#
+Field velX#,velY#,velZ#
+Field Life#
+Field Colour[2]
+Field weight#
+Field image
+End Type
+
+Type Emitter
+Field ID
+Field X#,y#,z#
+Field Speed# ; speed particles are emitted. 1=normal (constently) more then 1 is slower
+Field life#
+Field Colour[2]
+Field weight#
+Field image
+Field entity
+End Type
+
+Type eparticle
+Field ID
+Field emitter
+Field X#,Y#,z#
+Field velX#,velY#,velZ#
+Field Life#
+Field Colour[2]
+Field weight#
+Field image
+End Type
+
+Function create_emitter(X#,y#,z#,speed#,life#,weight#,image=0,red=255,green=255,blue=255)
+e.emitter=New emitter
+e\ID=eID
+EID=EID+1
+e\X#=x#
+e\y#=y#
+e\z#=z#
+e\Speed#=Speed#
+e\life#=life#
+e\weight#=weight#
+e\entity=CreateMesh()
+PositionEntity e\entity,X#,y#,z#
+e\colour[0]=red
+e\colour[1]=blue
+e\colour[2]=green
+End Function
+
+Function create_particle(X#,y#,z#,velX#,vely#,velz#,life#,weight#,image=0,red=255,green=255,blue=255)
+End Function
+
+Function update_particles()
+End Function
+
+Function Delete_Particle()
+End Function

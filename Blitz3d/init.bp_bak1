@@ -1,0 +1,123 @@
+
+; about the V array
+; first it is 17 points in X, and Y directions , then there is 2 per point, then times it by 3 for X,Y,Z and 4 since they are floats
+; this gives us 298:578:1734:6936
+Include "map.bp"
+Include "monster.bp"
+Include "items.bp"
+Include "GL.bp"
+Include "coll.bp"
+Include "font.bp"
+Include "character.bp"
+
+Global VertexArray=CreateBank(6936)  
+Global UVarray=CreateBank(4624)
+Global UVarray2=CreateBank(4624)
+Global camera.camera=New camera
+Dim race$(4),class$(7),town$(5),skill$(16)
+race(0)="Human"
+race(1)="Elf"
+race(2)="Dward"
+race(3)="Gnome"
+race(4)="Half-Orc"
+class(0)="Knight"
+class(1)="Paladin"
+class(2)="Archer"
+class(3)="Cleric"
+class(4)="Sorceror"
+class(5)="Robber"
+class(6)="Ninja"
+class(7)="Barbarian"
+town(0)="NONE"
+town(1)="Middlegate"
+town(2)="Atlantium"
+town(3)="Tundra"
+town(4)="Vulcania"
+town(5)="Sandsobar"
+skill(0)="............"
+skill(1)="Arms Master"
+skill(2)="Athlete"
+skill(3)="Cartographer"
+skill(4)="Crusader"
+skill(5)="Diplomat"
+skill(6)="Gambler"
+skill(7)="Gladiator"
+skill(8)="Hero/Heroine"
+skill(9)="Linguist"
+skill(10)="Merchant"
+skill(11)="Mountaineer"
+skill(12)="Navigator"
+skill(13)="Pathfinder
+skill(14)="PickPocket
+skill(15)="Soldier"
+; fills the vertex Array
+Function FillArray()
+Local u[3], u2[3]
+Local v[3], v2[3]
+u[0]=0
+u[1]=0
+u[2]=1
+u[3]=1
+v[0]=0
+v[1]=1
+v[2]=0
+v[3]=1
+u2[0]=0
+u2[1]=1
+u2[2]=1
+u2[3]=0
+v2[0]=0
+v2[1]=1
+v2[2]=0
+v2[3]=1
+
+	a=0
+	For x=0 To 16
+	fg3=0
+		For z=0 To 16
+			For y=0 To 1
+				PokeFloat(vertexarray,a,z*1.5)
+				PokeFloat(vertexarray,a+4,y/1.8)
+				PokeFloat(vertexarray,a+8,-x*1.5)
+				PokeFloat(uvarray,b,u[fg])
+				PokeFloat(uvarray,b+4,v[fg])
+				PokeFloat(uvarray2,b,fg2)
+				PokeFloat(uvarray2,b+4,fg3)
+				
+				fg=fg+1
+				If fg=4 fg =0
+
+								
+				a=a+12
+				b=b+8
+			Next
+			fg3=fg3+1
+			If fg3=2 fg3=0
+		Next
+		fg2=fg2+1
+		If fg2=2 fg2=0
+	Next
+End Function
+
+Function init()
+camera\vx#=.75
+camera\vy#=.30
+camera\vz#=0
+camera\px#=.75
+camera\py#=.30
+camera\pz#=-.75
+camera\uX=0
+camera\uy=1
+camera\uz=0
+	FillArray()
+	; load the maps in
+	loadmap()
+	makemap()
+	makeground()
+	makeroof()
+	; load the monsters in
+	loadmonsters()
+	; load the items in
+	;loaditems()
+
+End Function

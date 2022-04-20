@@ -1,0 +1,97 @@
+; font.bp for mm2
+
+Function glprint(x,y,txt$,set)
+	If set>1 set=1
+	glEnable(GL_BLEND);									; Enable Blending
+	glDisable(GL_DEPTH_TEST);							// Disables Depth Testing
+	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	glPushMatrix();										// Store The Projection Matrix
+	glLoadIdentity();									// Reset The Projection Matrix
+	glOrtho(0,640,0,480,-1,1);							// Set Up An Ortho Screen
+	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
+	glPushMatrix();										// Store The Modelview Matrix
+	glLoadIdentity();									// Reset The Modelview Matrix
+	glTranslatef(x,y,0);								// Position The Text (0,0 - Bottom Left)
+		tex=CreateBank((Len(txt)))
+	For loop=0 To Len(txt$)-1
+		PokeByte(tex,loop,Asc(Mid(txt,loop+1,1)))
+	Next			
+	glListBase((base-32)+(set*128))
+	glCallLists(Len(txt),GL_byte, tex);		// Write The Text To The Screen
+	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	glPopMatrix();										// Restore The Old Projection Matrix
+	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
+	glPopMatrix();										// Restore The Old Projection Matrix
+	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
+	glDisable(GL_BLEND);									; Enable Blending
+	;glDisable(GL_TEXTURE_2D)
+
+End Function
+
+Function mPrint(x,y,txt$,set)
+	If set>1 set=1
+	
+	glDisable(GL_DEPTH_TEST);							// Disables Depth Testing
+;	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	glPushMatrix();										// Store The Projection Matrix
+	glLoadIdentity();									// Reset The Projection Matrix
+;glOrtho(0,640,0,480,-1,1);							// Set Up An Ortho Screen
+;	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
+;	glPushMatrix();										// Store The Modelview Matrix
+;	glLoadIdentity();									// Reset The Modelview Matrix
+	glTranslatef(x,y,0);								// Position The Text (0,0 - Bottom Left)
+		tex=CreateBank((Len(txt)))
+	For loop=0 To Len(txt$)-1
+		PokeByte(tex,loop,Asc(Mid(txt,loop+1,1)))
+	Next			
+	glListBase((base-32)+(set*128))
+	glCallLists(Len(txt),GL_byte, tex);		// Write The Text To The Screen
+	;glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	;glPopMatrix();										// Restore The Old Projection Matrix
+	;glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
+	glPopMatrix();										// Restore The Old Projection Matrix
+	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
+
+End Function
+; 	
+; note this is what I based my GL text commands on, so I just did a copy and past of the function into this example 
+; (which is why it has name$ And size in its Function call - Drago
+
+Function BuildFont()								; Build Our Bitmap Font
+
+	base=glGenLists(256);								; Creating 256 Display Lists
+	glBindTexture(GL_TEXTURE_2D, font);			; Select Our Font Texture
+	For loop=0 To 255						; Loop Through All 256 Lists
+	
+
+		cx#=Float(loop Mod 16)/16.0;						// X Position Of Current Character
+		cy#=Float(loop/16)/16.0;						// Y Position Of Current Character
+
+		glNewList(base+loop,GL_COMPILE);				; Start Building A List
+			glBegin(GL_QUADS);							; Use A Quad For Each Character
+							glTexCoord2f(cx,1.0-cy-0.0625);			// Texture Coord (Bottom Left)
+				glVertex2i(0,24);							// Vertex Coord (Bottom Left)
+				glTexCoord2f(cx+0.0625,1.0-cy-0.0625);	// Texture Coord (Bottom Right)
+				glVertex2i(24,24);							// Vertex Coord (Bottom Right)
+				glTexCoord2f(cx+0.0625,1.0-cy-0.001);	// Texture Coord (Top Right)
+				glVertex2i(24,0);							// Vertex Coord (Top Right)
+				glTexCoord2f(cx,1.0-cy-0.001);			// Texture Coord (Top Left)
+				glVertex2i(0,0);
+			;	glTexCoord2f(cx,cy-0.0625);			; Texture Coord (Bottom Left)
+			;	glVertex2i(0,0);						; Vertex Coord (Bottom Left)
+			;	glTexCoord2f(cx+0.0625,cy-0.0625);	; Texture Coord (Bottom Right)
+			;	glVertex2i(16,0);						; Vertex Coord (Bottom Right)
+			;	glTexCoord2f(cx+0.0625,cy);			; Texture Coord (Top Right)
+			;	glVertex2i(16,16);						; Vertex Coord (Top Right)
+			;	glTexCoord2f(cx,cy);					; Texture Coord (Top Left)
+			;	glVertex2i(0,16);						; Vertex Coord (Top Left)
+			glEnd();									; Done Building Our Quad (Character)
+			glTranslatef(15,0,0);						; Move To The Right Of The Character
+		glEndList();									; Done Building The Display List								; Delete The Font
+		Next
+End Function
+
+Function KillFont()									; Delete The Font List
+
+	glDeleteLists(base, 96);							; Delete All 96 Characters
+End Function

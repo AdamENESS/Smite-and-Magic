@@ -1,0 +1,25 @@
+;Function readspldesc()
+df=ReadFile("spells.desc")
+blah=1
+Dim bob$(100)
+Dim bob2$(100,5)
+Repeat
+b$=ReadLine(df)
+Print b$
+If Len(b$)=0
+	blah=blah+1
+Else 
+	bob$(blah)=bob$(blah)+" "+b$
+End If
+Until Eof(df)
+Print blah/2
+For a=1 To 96
+	For ba=0 To 5
+	bob2$(a,ba)=Mid(bob$(a),(ba*50)+1,50)
+	DebugLog  bob2$(a,ba)
+	Next
+	DebugLog " "
+Next	
+
+
+

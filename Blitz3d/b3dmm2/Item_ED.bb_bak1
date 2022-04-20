@@ -1,0 +1,344 @@
+Type item
+	Field name$
+	Field Value
+	Field Damage
+	Field ID
+	Field Usableby
+	Field usa[8]
+	Field effect$[2]; 0 is type 1 amount
+	Field bonus$[2] ; 0 is type 1 amount
+End Type
+Include "XLNT-GUI_V1.84.BB"
+Graphics 800,600,16,2
+GUI_GFXSETUP()
+Global tm$ 
+
+;About
+About.WINDOW=GUI_WINDOW(237,180,250,100,"Edit Window",1,0,1,0,0)
+;Gadets....
+face$="tiles.jpg"
+img_frame.GADGET=GUI_IMAGEBOX(ABOUT,20,28,56,56,Face$,100,0,"")
+cmd_Ok.GADGET=GUI_BUTTUN(ABOUT,196,52,40,"OK",1,"")
+msg_a1.GADGET=GUI_TEXT(ABOUT,92,20,100,100,"Freespace 1/2 POF Viewer","")
+msg_a2.GADGET=GUI_TEXT(ABOUT,92,42,100,100,"®2002 Adam Templeton","")
+msg_a3.GADGET=GUI_TEXT(ABOUT,92,74,100,100,"Version 0.1 ","")
+
+
+;Edit Window GUI DATA
+Global MYWIN.WINDOW=GUI_WINDOW(233,200,299,266,"Edit Window",1,0,1,0,0)
+;Gadets....
+Global cmd_load.GADGET=GUI_BUTTUN(MYWIN,12,236,40,"Load",1,"")
+Global cmd_save.GADGET=GUI_BUTTUN(MYWIN,60,236,40,"Save",1,"")
+Global cmd_about.GADGET=GUI_BUTTUN(MYWIN,196,236,40,"About",1,"")
+Global cmd_quit.GADGET=GUI_BUTTUN(MYWIN,244,236,40,"Quit",1,"")
+Global sel_item.GADGET=GUI_SELECTOR(MYWIN,84,28,153,"One#Two#Three#",1,"")
+Global frm_1.GADGET=GUI_FRAME(MYWIN,4,228,288,32,"",1,"")
+Global frm_2.GADGET=GUI_FRAME(MYWIN,4,44,288,176,"Item",1,"")
+Global txt_name.GADGET=GUI_TXTINPUT(MYWIN,22,60,80,"","Name:",8,1,"")
+Global frm_3.GADGET=GUI_FRAME(MYWIN,20,76,248,56,"Useable By",1,"")
+Global bol_k.GADGET=GUI_TICK(MYWIN,36,92,"Knight",0,0,1,"")
+Global bol_p.GADGET=GUI_TICK(MYWIN,36,108,"Paladin",0,0,1,"")
+Global bol_a.GADGET=GUI_TICK(MYWIN,36,124,"Archer",0,0,1,"")
+Global bol_r.GADGET=GUI_TICK(MYWIN,108,92,"Robber",0,0,1,"")
+Global bol_c.GADGET=GUI_TICK(MYWIN,108,108,"Cleric",0,0,1,"")
+Global bol_s.GADGET=GUI_TICK(MYWIN,108,124,"Sorceror",0,0,1,"")
+Global bol_n.GADGET=GUI_TICK(MYWIN,180,100,"Ninja",0,0,1,"")
+Global bol_b.GADGET=GUI_TICK(MYWIN,180,116,"Barbarian",0,0,1,"")
+;Global sel_bns.GADGET=GUI_SELECTOR(MYWIN,60,148,70,"NONE#Might#Interlect#Personality#Endurance#Accuracy#Speed#Luck#AC#Max Spell#Max HP#",0,"")
+Global sel_bns.GADGET=GUI_cycle(MYWIN,60,148,70,"0#1#2#3#4#5#6#7#8#9#A#B#C#D#E#F#",0,1,"")
+
+Global int_bns.GADGET=GUI_INTEGER(MYWIN,196,148,"",0,0,15,1,"")
+Global msg_1.GADGET=GUI_TEXT(MYWIN,148,148,48,10,"Amount:","")
+Global sel_eft.GADGET=GUI_cycle(MYWIN,60,164,70,"0#1#2#3#4#5#6#7#8#9#A#B#C#D#E#F#",0,1,"")
+Global int_eft.GADGET=GUI_INTEGER(MYWIN,196,164,"",0,0,15,1,"")
+Global msg_2.GADGET=GUI_TEXT(MYWIN,148,164,48,10,"Amount:","")
+Global msg_3.GADGET=GUI_TEXT(MYWIN,12,164,40,10,"Effect","Effect When Item is Used")
+Global msg_4.GADGET=GUI_TEXT(MYWIN,12,148,40,16,"Bonus:","Effect When Item is Equiped")
+Global int_dmg.GADGET=GUI_INTEGER(MYWIN,60,188,"",0,0,100,1,"")
+Global msg_5.GADGET=GUI_TEXT(MYWIN,12,188,48,10,"Damage","Damage Done if Weapon")
+Global txt_val.GADGET=GUI_TXTINPUT(MYWIN,166,188,80,"","Value",5,1,"Value of Item")
+
+
+Global msg_6.GADGET=GUI_TEXT(MYWIN,44,28,72,10,"Item:","Value of Item")
+ 
+GUI_OPENWIN(MYWIN)
+ gui_openwin(about)
+gui_hidewin(about)
+GUI_OPENWIN(MYWIN)
+
+Repeat
+	Flip:SetBuffer BackBuffer():Cls
+GUI()
+	Select EVENT$
+		Case "GUI_GADHIT"		;GADGET CLICKED
+			Select True
+				Case GUI_GADHIT=cmd_load
+ 					fn$=GUI_FILEREQUEST$("Choose Item.Dat to Load",".dat#All Files#")
+					If fn$<>"NONE"
+					gui_winactive(mywin,1)
+					load_item(fn$)
+					gui_refresh(mywin)
+					
+					EndIf
+				Case GUI_GADHIT=cmd_save
+ 					fn$=GUI_FILEREQUEST$("Choose Item.Dat to Save",".dat#All Files#")
+				 	unfill_values(Int(tm$))
+					SAVE_item(fn$)					
+				Case GUI_GADHIT=cmd_about
+				
+				gui_showwin(about)
+				gui_winfront(About)
+				gui_activewin=about
+				Repeat
+					Flip:SetBuffer BackBuffer():Cls
+					GUI()
+					Select EVENT$
+					Case "GUI_GADHIT"		;GADGET CLICKED
+						Select True
+							Case gui_gadhit=cmd_ok
+							Exit
+						End Select
+					End Select
+					Forever
+ 					gui_hidewin(about)
+					gui_activewin=mywin
+
+				Case GUI_GADHIT=cmd_quit
+ 				quit=True
+				Case GUI_GADHIT=sel_item
+				unfill_values(tm$)
+				temp$=gui_gadtext$(sel_item)
+				tm$=""
+				For a=1 To 4
+				If Not Mid(temp$,a,1)=":"
+				tm$=tm$+Mid(temp$,a,1)
+				Else 
+				Exit
+				EndIf
+				
+				Next
+				fill_values(Int(tm$))
+				gui_refresh(mywin)
+			End Select
+		Case "MENU"		;MENU HIT
+			Select GUI_MENUHIT
+ 
+			End Select
+		Case "QMENU"		;QMENU HIT
+			Select GUI_QMENUHIT
+ 
+			End Select
+		Case "KILLWIN"		;CLOSE WINDOW
+			QUIT=True
+	End Select
+Until QUIT=True
+GUI_END()
+End
+
+
+Function load_item(file$)
+id=0
+filein=ReadFile(file$)
+For a=0 To 255
+item.item = New item
+item\id=a
+For c=0 To 11
+ch$=Chr$(ReadByte(filein))
+item\name$=item\name$+ch$
+Next
+ReadByte(filein)
+as$=as$+a+": "+item\name$+"#"
+item\usableby=ReadByte(filein)
+temp$=Hex(ReadByte(filein))
+item\bonus[0]=(Mid(temp$,7,1))
+item\bonus[1]=(Right(temp$,1))
+temp$=Hex(ReadByte(filein))
+item\effect[0]=(Mid(temp$,7,1))
+item\effect[1]=(Right(temp$,1))
+item\damage=ReadByte(filein)
+ReadByte(filein)
+item\value=ReadShort(filein)
+Next
+Flip:SetBuffer BackBuffer():Cls
+gui_settext(sel_item,as$)
+fill_values(0)
+End Function
+
+Function fill_values(no)
+	For item.item=Each item
+	If item\id=no
+	u$=Bin(item\usableby)
+	nm=25
+	For lp=0 To 7
+	item\usa[lp]=Int(Mid(u$,(nm+lp),1))
+
+	Next
+	dfgdfgdfgdfg,dfgdfgdfgdfwer34b53 tdg
+	gui_setval(bol_k,item\usa[0])
+	gui_setval(bol_p,item\usa[1])
+	gui_setval(bol_a,item\usa[2])
+	gui_setval(bol_r,item\usa[3])
+	gui_setval(bol_c,item\usa[4])
+	gui_setval(bol_s,item\usa[5])
+	gui_setval(bol_n,item\usa[6])
+	gui_setval(bol_b,item\usa[7])
+	
+	gui_settext(txt_name, item\name$)
+	temp=hex2int(item\effect[0])
+	gui_setval(sel_eft,temp)
+	temp=hex2int(item\effect[1])
+	gui_setval(int_eft,temp)
+	temp=hex2int(item\bonus[0])
+	gui_setval(sel_bns,temp)
+	temp=hex2int(item\bonus[1])
+	gui_setval(int_bns,temp)
+	gui_setval(int_dmg,item\damage)
+	gui_setText(txt_val,Str(item\value))
+
+	End If
+	Next
+End Function
+
+Function unfill_values(no)
+	For item.item=Each item
+	If item\id=no
+	item\usa[0]=gui_gadval(bol_k)
+	item\usa[1]=gui_gadval(bol_p)
+	item\usa[2]=gui_gadval(bol_a)
+	item\usa[3]=gui_gadval(bol_r)
+	item\usa[4]=gui_gadval(bol_c)
+	item\usa[5]=gui_gadval(bol_s)
+	item\usa[6]=gui_gadval(bol_n)
+	item\usa[7]=gui_gadval(bol_b)
+	qip=0
+	mint$=""
+	b=7
+	For a=1 To 8
+	qip=qip+Int(item\usa[(a-1)])*(2^b)	
+	mint$=mint$+item\usa[(a-1)]
+	b=b-1
+	Next
+	item\usableby=qip
+	item\name$=Left(gui_gadtext(txt_name),12)
+	temp$=Int2hex(Int(gui_gadval(sel_eft)))
+	item\effect[0]=temp$
+	temp$=Int2hex(Int(gui_gadval(int_eft)))
+	item\effect[1]=temp$
+	temp$=Int2hex(Int(gui_gadval(sel_bns)))
+	item\bonus[0]=temp$
+	temp$=Int2hex(Int(gui_gadval(int_bns)))
+	item\bonus[1]=temp$
+;	gui_setval(sel_eft,temp)
+;	temp=hex2int(item\effect[1])
+;	gui_setval(int_eft,temp)
+;	temp=hex2int(item\bonus[0])
+;	gui_setval(sel_bns,temp)
+;	temp=hex2int(item\bonus[1])
+	gui_setval(int_bns,temp)
+	item\damage=gui_gadval(int_dmg)
+	item\value=Int(Left(gui_gadval(txt_val),5))
+	End If
+	Next
+End Function
+
+Function hex2int(String$)
+	Select String$
+	Case "0"
+	temp=0
+	Case "1"
+	temp=1
+	Case "2"
+		temp=2
+	Case "3"
+		temp=3
+	Case "4"
+		temp=4
+	Case "5"
+		temp=5
+	Case "6"
+		temp=6
+	Case "7"
+		temp=7
+	Case "8"
+		temp=8
+	Case "9"
+		temp=9
+
+	Case "A"
+		temp=10
+	Case "B"
+		temp=11
+	Case "C"
+		temp=12
+	Case "D"
+		temp=13
+	Case "E"
+		temp=14
+	Case "F"
+		temp=15
+End Select
+Return temp
+End Function
+
+Function int2hex(in)
+	DebugLog "IN:"+in
+	Select in
+	Case 0
+	temp$="0"
+	Case 1
+	temp$="1"
+	Case 2
+		temp$="2"
+	Case 3
+		temp$="3"
+	Case 4
+		temp$="4"
+	Case 5
+		temp$="5"
+	Case 6
+		temp$="6"
+	Case 7
+		temp$="7"
+	Case 8
+		temp$="8"
+	Case 9
+		temp$="9"
+	Case 10
+		temp$="A"
+	Case 11
+		temp$="B"
+	Case 12
+		temp$="C"
+	Case 13
+		temp$="D"
+	Case 14
+		temp$="E"
+	Case 15
+		temp$="F"
+End Select
+Return temp$
+
+End Function
+
+Function save_item(file$)
+fileout=WriteFile(file$)
+For item.item=Each item
+For c=1 To 12
+ch$=Mid(item\name$,c,1)
+WriteByte(fileout,Asc(ch$))
+Next
+WriteByte(fileout,0)
+as$=as$+a+": "+item\name$+"#"
+WriteByte(fileout,item\usableby)
+temp=Int(item\bonus[0])+Int(item\bonus[1])^2
+DebugLog temp
+WriteByte(fileout,temp)
+temp=Int(item\effect[0])+Int(item\effect[1])^2
+DebugLog temp
+WriteByte(fileout,temp)
+WriteByte(fileout,item\damage)
+WriteByte(fileout,0)
+WriteShort(fileout,item\value)
+Next
+End Function
+

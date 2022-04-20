@@ -1,0 +1,193 @@
+This says weather the monster is able to be in a random encounter or add friends.
+0:Creepy Crawler
+1:Giant Beetle  
+2:Sewer Rat     
+3:Kobold        
+4:Old Miser     
+5:Goblin        
+6:Cripple       
+7:Hungry Plant  
+8:Merchant      
+9:Mugger        
+10:Skeleton      
+11:Flesh Eater   
+12:Poltergeist   
+13:Fool          
+14:Witch's Cat   
+15:Mini Rex      
+16:Greedy Snitch 
+17:Orc           
+18:Beggar        
+19:Sludge Beast  
+20:Blood Sucker  
+21:Venomous Snake
+22:Screaming Pods
+25:Neophyte Thief
+26:Zombie        
+27:Brain Eater   
+28:Inept Wizard  
+29:Phantasm      
+30:Sprite        
+31:Thug Trainee  
+32:Hypnobeetle   
+33:Rabid Rodent  
+35:Winged Steed  
+36:Giant Lizard  
+37:Foot Soldier  
+38:Ranger        
+39:Soldier       
+40:Friar         
+41:Burglar       
+42:Killer Cadaver
+43:Ghoul         
+44:Juggler       
+46:Kobold Captain
+47:Brainless One 
+48:Arachnoid     
+49:Insect Plague 
+50:Crazed Dwarf  
+52:Mutant Swine  
+53:Swamp Dog     
+54:Deadly Rattler
+55:Woodsman      
+56:Ninja         
+57:Squire        
+58:Dancing Bones 
+59:Dancing Dead  
+60:Cursed Corpse 
+61:Nasty Witch   
+62:Super Sprite  
+63:Cat Corpse    
+64:Giant Scorpion
+65:Killer Bees   
+66:Minor Demon   
+67:Hunchback     
+68:Giant Ogre    
+70:Wind Mare     
+71:Werebull      
+72:Snapping Spore
+74:Druid         
+76:Coffin Creep  
+77:Gargoyle      
+78:Vampiric Rat  
+79:Cursed Slayer 
+80:Viking        
+81:Gnome         
+82:Minor Devil   
+83:Warrior Boar  
+84:Cockatrice    
+85:Killer Canine 
+87:Champion      
+88:Gate Keeper   
+89:Shaman        
+90:Illusionist   
+91:Mounted Patrol
+92:Night Stalker 
+93:Wraith        
+94:Mad Peasant   
+95:Canine Creep  
+96:Dinobug       
+98:Leprechaun    
+99:Flaming Fear  
+100:Leper         
+101:Troll         
+102:Acidic Blob   
+103:Werewolf      
+104:Pyro Hydra    
+106:Thief         
+108:Swamp Thing   
+110:Mutant        
+111:Strangler     
+112:Dwarven Knight
+113:Horned Fiend  
+114:Swamp Beast   
+115:Hill Giant    
+116:Wyvern        
+117:Earth Wyrm    
+120:Mountain Man  
+121:Gravewalker   
+122:Phantom       
+123:Lost Soul     
+124:Slasher       
+125:Guardian      
+126:Seductress    
+127:Pixie         
+128:Lightning Bugs
+130:Griffin       
+131:Pegasus       
+132:Gorgon        
+135:Paladin       
+136:Elf Warrior   
+137:Priest        
+139:Amazon        
+140:Grim Reaper   
+141:Mummy         
+142:Bonehead      
+143:Melting Man   
+145:Fire Devil    
+146:Apparition    
+147:Vampire       
+149:Dinosaur      
+150:Avenger       
+151:Court Bowman  
+152:Holy Man      
+153:Court Mage    
+154:Warlock       
+156:Royal Horseman
+157:Court Jester  
+158:Fire Faery    
+159:Thug Leader   
+160:Dino Spider   
+161:Plant Golem   
+162:Stone Golem   
+164:Guardian Hound
+165:Minotaur      
+167:Shadow Rogue  
+169:Chancellor    
+170:Ghost         
+171:Dead Head     
+172:Enchantress   
+173:Warbot        
+174:Stalker       
+175:Hatchet Man   
+176:Dwarven Elder 
+177:Ooze Warrior  
+178:Roc           
+179:Dagger Jaw    
+180:Armored Dragon
+181:Tyrannosaurus 
+182:Valiant Knight
+183:Endless Knight
+184:Archer        
+186:Crypt Fiend   
+187:Phase Spirit  
+189:Mystic Clown  
+190:Spido Bug     
+191:Living Dead   
+193:Fire Elemental
+194:Air Elemental 
+195:Mist Rider    
+196:Magic Serpent 
+197:Cron Man Trap 
+198:Dark Knight   
+199:Sorcerer      
+200:Kensai        
+201:Jouster       
+202:Devil's Envoy 
+204:Death's Agent 
+205:Alien Probe   
+206:Element Hydra 
+207:Monster Masher
+212:Cuisinart     
+213:Holy Warrior  
+215:High Priest   
+216:Master Robber 
+219:Time Lord     
+222:Mega Troll    
+224:Earth Elementl
+225:Water Elementl
+226:Gnasher       
+227:Chomper       
+228:Mutant Fish   
+230:Aquasaurus    
+231:Cosmic Sludge 

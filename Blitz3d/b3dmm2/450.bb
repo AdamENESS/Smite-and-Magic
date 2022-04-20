@@ -1,0 +1,40 @@
+Graphics 800,600,16,2
+AppTitle "The Orb by Seth"
+SetBuffer BackBuffer()
+SeedRnd MilliSecs()
+.choose
+an$=Input("enter an Angle(1-360)")
+DebugLog Int(an$)
+If Int(an$)<1 Or Int(an$)>360 Goto choose
+ang=Int(an$)
+
+While Not KeyHit(1)
+	Cls
+	Color 200,255,255
+;	Oval 200,100,400,400
+	Color 0,0,0
+	Oval 202,102,396,396
+;	For ang=0 To 350 Step 30
+		TurnOff=0
+		OldX=400:OldY=300
+
+		For x=1 To 100
+			Select Rand(5)
+			Case 1
+				turnoff=turnoff+2
+			Case 2
+				turnoff=turnoff-2
+			End Select
+			Color 0,Rnd(255),255
+			Line oldx,oldy,400+x*Sin(ang+turnoff),300-x*Cos(ang+turnoff)
+			Oldx=400+x*Sin(ang+turnoff)
+			Oldy=300-x*Cos(ang+turnoff)
+		Next
+;	Next
+;	Color 128,64,255
+;	Oval 390,290,20,20
+;	Rect 398,298,4,200
+	Color 255,255,255
+	Text 400,20,"The Orb - by Seth Jeffery",True,True
+	Flip
+Wend

@@ -1,0 +1,517 @@
+;Include "Datapak.bp"
+;Global fo=WriteFile("map.log")
+Type map
+	Field name$		; Area name
+	Field envion	; area type 0=city, 1=dungeon,  2=castle, 3=out side
+	Field area		
+	Field Exits		; bank of exit data 
+	Field mapdata	; bank of map data
+	Field collmap	; bank of collision data
+	Field roofdat	; bank of roof data
+	Field events	; bank of event links
+	Field meshsurf,roofsurf,collsurf
+;	Field surfloc[2]
+	;	used For drawing the map
+	Field tris[2] 		; Banks that have a Quad for each wall loc, so it can be used with a vertex array. since all maps are 15x15 grids.
+	Field coll
+	
+;	Field show=0
+	Field roof
+	Field infloor, outfloor[11]
+End Type
+
+;loadmap()
+;makemap()
+
+Function loadmap()
+mapd=getfile("data\map.dat","data.mpf")
+attrib=getfile("data\attrib.dat","data.mpf")
+;; WriteLine fo, mapd+ " "+attrib
+For area=0 To 59
+	map.map=New map
+	map\area=area
+	Select area
+	Case 0
+		map\name$="Middlegate"
+	Case 1
+		map\name$="Atlantium"
+	Case 2
+		map\name$="Tundra"
+	Case 3
+		map\name$="Volcania"
+	Case 4
+		map\name$="Sandsobar"
+	Case 17
+		map\name$="Middlegate Cavern"
+	Case 18
+		map\name$="Atlantium Cavern"
+	Case 19
+		map\name$="Tundra Cavern"
+	Case 20
+		map\name$="Volcania Cavern"
+	Case 21
+		map\name$="Sandsobar Cavern"
+	Case 22
+		map\name$="Coraks Cave"
+	Case 23
+		map\name$="Square Isle"
+	Case 24
+		map\name$="Tundra Cave"
+	Case 25
+		map\name$="Sarkins Mine"
+	Case 26
+		map\name$="Murry's Resort"
+	Case 27
+		map\name$="Druids Cavern"
+	Case 28
+		map\name$="Forbiddin Forest Cavern"
+	Case 29
+		map\name$="Dragons Dominion"
+	Case 30
+		map\name$="Dawns Mist Bog"
+	Case 31
+		map\name$="Gemmakers"	
+	Case 32
+		map\name$="Normadic Rift"	
+	Case 41
+		map\name$="Elemental Plain of Air"	
+	Case 42
+		map\name$="Elemental Plain of Fire"	
+	Case 43
+		map\name$="Elemental Plain of Earth"	
+	Case 44
+		map\name$="Elemental Plain of Water"	
+	Case 45
+		map\name$="dungeon Level 1"	
+	Case 46
+		map\name$="dungeon Level 2"	
+	Case 47
+		map\name$="dungeon Level 1"	
+	Case 48
+		map\name$="dungeon Level 2"	
+	Case 49
+		map\name$="dungeon Level 1"	
+	Case 50
+		map\name$="dungeon Level 2"	
+	Case 51
+		map\name$="Woodhaven Dungeon level 1"	
+	Case 52
+		map\name$="Woodhaven Dungeon Level 2"	
+	Case 53
+		map\name$="Ancients (Good)"	
+	Case 54
+		map\name$="Ancients (Evil)"	
+	Case 55
+		map\name$="Woodhaven"
+	Case 56
+		map\name$="Hillstone"	
+	Case 57
+		map\name$="Pinehurst"	
+	Case 58
+		map\name$="Luxus Palace Royale"	
+	Case 59
+		map\name$="Castle Xavier"	
+
+	End Select
+	aloc=(area*64)
+	mloc=(area*512)
+	; find out what type of are the map is
+	
+	;SeekFile(attrib,aloc+4)
+	tmp=PeekByte(attrib,aloc+4)
+	; WriteLine fo, tmp
+	If tmp>0
+		map\envion=3
+	;	SeekFile(attrib,aloc+21)
+		map\name$="Outside Area: "+Right(Hex(PeekByte(attrib,aloc+21)),2)
+	Else
+	;	SeekFile(attrib,aloc+3)
+		tmp=PeekByte(attrib,aloc+3)
+		Select tmp
+		Case 17
+			map\envion=0
+		Case 18
+			map\envion=1
+		Case 19
+			map\envion=2
+		Case 20
+			map\envion=2
+		End Select
+		If map\area>40 And map\area<45
+			map\envion=3
+		EndIf
+	EndIf
+	; WriteLine fo, map\area+" Envion:"+map\envion+" Name:"+map\name
+
+	; read the map data in.
+	map\mapdata=CreateBank(256)
+	map\collmap=CreateBank(256)
+	CopyBank(mapd,mloc,map\mapdata,0,256)
+	CopyBank(mapd,mloc+256,map\collmap,0,256)
+	aloc=((area*64)+32)
+	Local temparray[256]
+	For a=0 To 255 Step 8
+		roof=PeekByte(attrib,aloc+(a/8))
+		;; WriteLine fo, "roof: "+a
+		;; WriteLine fo, Right(Bin(roof),8)
+		temparray[a+7]=Mid(Right(Bin(roof),8),1,1)
+		temparray[a+6]=Mid(Right(Bin(roof),8),2,1)
+		temparray[a+5]=Mid(Right(Bin(roof),8),3,1)
+		temparray[a+4]=Mid(Right(Bin(roof),8),4,1)
+		temparray[a+3]=Mid(Right(Bin(roof),8),5,1)
+		temparray[a+2]=Mid(Right(Bin(roof),8),6,1)
+		temparray[a+1]=Mid(Right(Bin(roof),8),7,1)
+		temparray[a+0]=Mid(Right(Bin(roof),8),8,1)
+	Next
+	map\roofdat=CreateBank(256)
+	For a=0 To 255
+		PokeByte(map\roofdat,a,temparray[255-a])
+	Next
+	For mp=0 To 2
+	map\tris[mp]=CreateBank(1)
+	Next
+Next
+End Function
+
+Function makemap()
+For m.map=Each map
+For n=0 To 11
+m\outfloor[n]=CreateBank(1)
+Next
+
+;WriteLine(fo,m\name$)
+a=0
+	If m\envion<3	; inside 
+		For x=0 To 15
+			For y=0 To 15
+;			WriteLine fo,X+" "+Y
+			cwall$=Right(Bin(PeekByte(m\mapdata,a)),8)
+;			WriteLine fo,cwall$
+			For d=0 To 3
+			Select GetWall(cwall,d)
+				Case 1
+					If BankSize(m\tris[0])=1
+						m\tris[0]=CreateBank(16)
+						off=0
+					Else
+						off=BankSize(m\tris[0])
+						ResizeBank(m\tris[0],BankSize(m\tris[0])+16)
+					EndIf
+								;WriteLine fo, 1+" "+off
+					
+					PokeInt(m\tris[0],off,pvert(x,y,d,0))
+					PokeInt(m\tris[0],off+4,pvert(x,y,d,1))
+					PokeInt(m\tris[0],off+8,pvert(x,y,d,2))										
+					PokeInt(m\tris[0],off+12,pvert(x,y,d,3))					
+;					WriteLine fo,1+" "+off+" "+pvert(x,y,d,0)+" "+pvert(x,y,d,1)+" "+pvert(x,y,d,2)+" "+pvert(x,y,d,3)
+					
+				Case 2
+					If BankSize(m\tris[1])=1
+						m\tris[1]=CreateBank(16)
+						off=0
+
+					Else
+					off=BankSize(m\tris[1])
+						ResizeBank(m\tris[1],BankSize(m\tris[1])+16)
+					EndIf
+								;WriteLine fo, 2+" "+off
+					PokeInt(m\tris[1],off,pvert(x,y,d,0))
+					PokeInt(m\tris[1],off+4,pvert(x,y,d,1))
+					PokeInt(m\tris[1],off+8,pvert(x,y,d,2))										
+					PokeInt(m\tris[1],off+12,pvert(x,y,d,3))					
+;					WriteLine fo,2+" "+off+" "+pvert(x,y,d,0)+" "+pvert(x,y,d,1)+" "+pvert(x,y,d,2)+" "+pvert(x,y,d,3)
+
+		
+				Case 3
+					If BankSize(m\tris[2])=1
+						m\tris[2]=CreateBank(16)
+						off=0
+
+					Else
+						off=BankSize(m\tris[2])
+						ResizeBank(m\tris[2],BankSize(m\tris[2])+16)
+					EndIf
+					PokeInt(m\tris[2],off,pvert(x,y,d,0))
+					PokeInt(m\tris[2],off+4,pvert(x,y,d,1))
+					PokeInt(m\tris[2],off+8,pvert(x,y,d,2))										
+					PokeInt(m\tris[2],off+12,pvert(x,y,d,3))					
+;					WriteLine fo,3+" "+off+" "+pvert(x,y,d,0)+" "+pvert(x,y,d,1)+" "+pvert(x,y,d,2)+" "+pvert(x,y,d,3)
+					
+			End Select
+			Next
+
+			a=a+1
+			
+			Next
+		Next
+	Else			; outside
+		For x=0 To 15
+			For y=0 To 15
+;				WriteLine fo,X+" "+Y
+				cwall$=Right(Bin(PeekByte(m\mapdata,a)),8)
+;				WriteLine fo,cwall$
+					temp=GetOWall(cwall,0)
+					If temp=1 Or temp=3 Or temp=5 Or temp=7 Or temp=9 Or temp=11 Or temp=13 Or temp=15
+					makeofloor(x,y,6,m)
+					Else
+					Select	GetOWall(cwall,1)
+					Case 0
+					makeofloor(x,y,1,m)
+					Case 1
+					makeofloor(x,y,1,m)
+					For d=0 To 3
+					If BankSize(m\tris[2])=1
+						m\tris[2]=CreateBank(16)
+						off=0
+
+					Else
+						off=BankSize(m\tris[2])
+						ResizeBank(m\tris[2],BankSize(m\tris[2])+16)
+					EndIf
+						PokeInt(m\tris[2],off,pvert(x,y,d,0))
+						PokeInt(m\tris[2],off+4,pvert(x,y,d,1))
+						PokeInt(m\tris[2],off+8,pvert(x,y,d,2))										
+						PokeInt(m\tris[2],off+12,pvert(x,y,d,3))
+					Next
+					Case 2
+					makeofloor(x,y,1,m)
+					For d=0 To 3
+					If BankSize(m\tris[2])=1
+						m\tris[2]=CreateBank(16)
+						off=0
+
+					Else
+						off=BankSize(m\tris[2])
+						ResizeBank(m\tris[2],BankSize(m\tris[2])+16)
+					EndIf
+					;For d=0 To 3
+						PokeInt(m\tris[2],off,pvert(x,y,d,0))
+						PokeInt(m\tris[2],off+4,pvert(x,y,d,1))
+						PokeInt(m\tris[2],off+8,pvert(x,y,d,2))										
+						PokeInt(m\tris[2],off+12,pvert(x,y,d,3))
+					Next
+					Case 3
+					makeofloor(x,y,1,m)
+					For d=0 To 3
+					If BankSize(m\tris[0])=1
+						m\tris[0]=CreateBank(16)
+						off=0
+
+					Else
+						off=BankSize(m\tris[0])
+						ResizeBank(m\tris[0],BankSize(m\tris[0])+16)
+					EndIf
+					;For d=0 To 3
+						PokeInt(m\tris[0],off,pvert(x,y,d,0))
+						PokeInt(m\tris[0],off+4,pvert(x,y,d,1))
+						PokeInt(m\tris[0],off+8,pvert(x,y,d,2))										
+						PokeInt(m\tris[0],off+12,pvert(x,y,d,3))
+					Next
+					Case 4
+					makeofloor(x,y,1,m)
+					For d=0 To 3					
+										If BankSize(m\tris[1])=1
+						m\tris[1]=CreateBank(16)
+						off=0
+
+					Else
+						off=BankSize(m\tris[1])
+						ResizeBank(m\tris[1],BankSize(m\tris[1])+16)
+					EndIf
+					
+						PokeInt(m\tris[1],off,pvert(x,y,d,0))
+						PokeInt(m\tris[1],off+4,pvert(x,y,d,1))
+						PokeInt(m\tris[1],off+8,pvert(x,y,d,2))										
+						PokeInt(m\tris[1],off+12,pvert(x,y,d,3))
+					Next
+					Case 5
+					makeofloor(x,y,5,m)
+					Case 6
+					makeofloor(x,y,2,m)
+					Case 7
+					makeofloor(x,y,4,m)
+					Case 8
+					makeofloor(x,y,3,m)
+					Case 9
+					makeofloor(x,y,5,m)
+					Case 10
+					makeofloor(x,y,2,m)
+					Case 11
+					makeofloor(x,y,4,m)
+					Case 12
+					makeofloor(x,y,3,m)
+					Case 13
+					makeofloor(x,y,6,m)
+					Case 14
+					makeofloor(x,y,1,m)
+					Case 15
+					makeofloor(x,y,0,m)
+					End Select
+
+					EndIf
+								a=a+1
+			Next
+		Next
+			
+
+	EndIf
+	;WriteLine fo,BankSize(m\tris[0])/16+" "+BankSize(m\tris[1])/16+" "+BankSize(m\tris[2])/16
+Next
+End Function
+
+Function GetWall(i$,wall%)
+If Mid(i,1+(wall*2),2)="00"
+	Return 0
+Else If Mid(i,1+(wall*2),2)="01"
+	Return 1
+Else If Mid(i,1+(wall*2),2)="10"
+	Return 2
+Else If Mid(i,1+(wall*2),2)="11"
+	Return 3
+EndIf
+End Function
+
+Function GetOWall#(i$,wall%)
+If Mid(i,1+(wall*4),4)="0000"
+	Return 0.1
+Else If Mid(i,1+(wall*4),4)="0001"
+	Return 1.1
+Else If Mid(i,1+(wall*4),4)="0010"
+	Return 2.1
+Else If Mid(i,1+(wall*4),4)="0011"
+	Return 3.1
+Else If Mid(i,1+(wall*4),4)="0100"
+	Return 4.1
+Else If Mid(i,1+(wall*4),4)="0101"
+	Return 5.5
+Else If Mid(i,1+(wall*4),4)="0110"
+	Return 6.2
+Else If Mid(i,1+(wall*4),4)="0111"
+	Return 7.4
+Else If Mid(i,1+(wall*4),4)="1000"
+	Return 8.3
+Else If Mid(i,1+(wall*4),4)="1001"
+	Return 9.5
+Else If Mid(i,1+(wall*4),4)="1010"
+	Return 10.2 
+Else If Mid(i,1+(wall*4),4)="1011"
+	Return 11.4 
+Else If Mid(i,1+(wall*4),4)="1100"
+	Return 12.3 
+Else If Mid(i,1+(wall*4),4)="1101"
+	Return 13.6 
+Else If Mid(i,1+(wall*4),4)="1110"
+	Return 14.1 
+Else If Mid(i,1+(wall*4),4)="1111"
+	Return 15.0			
+EndIf
+End Function
+
+Function pvert(x,y,pos,vert)
+Select pos
+Case 0
+	Select vert
+		Case 0
+			Return( 34+(x*34)+(y*2) )
+		Case 1
+			Return( 34+(x*34)+(y*2)+1 )		
+		Case 2
+			Return( 34+(x*34)+((y+1)*2)+1 )					
+		Case 3
+			Return( 34+(x*34)+((y+1)*2) )		
+	End Select
+Case 1
+	Select vert
+		Case 0
+			Return( 34+(x*34)+((y+1)*2) )
+		Case 1
+			Return( 34+(x*34)+((y+1)*2)+1 )		
+		Case 2
+			Return( (x*34)+((y+1)*2)+1 )					
+		Case 3
+			Return( (x*34)+((y+1)*2) )		
+	End Select	
+Case 2
+	Select vert
+		Case 0
+			Return( (x*34)+(y*2) )
+		Case 1
+			Return( (x*34)+(y*2)+1 )		
+		Case 2
+			Return( (x*34)+((y+1)*2)+1 )					
+		Case 3
+			Return( (x*34)+((y+1)*2) )			
+	End Select	
+Case 3
+	Select vert
+		Case 0
+			Return( 34+(x*34)+((y)*2) )
+		Case 1
+			Return( 34+(x*34)+((y)*2)+1 )		
+		Case 2
+			Return( (x*34)+((y)*2)+1 )					
+		Case 3
+			Return( (x*34)+((y)*2) )		
+	End Select
+End Select
+
+End Function
+
+Function makeground()
+For m.map = Each map
+	m\infloor=CreateBank(256*16)
+	off=0
+	For x=0 To 15
+		For y=0 To 15
+			PokeInt(m\infloor,off,(x*34)+(y*2))
+			PokeInt(m\infloor,off+4,((x+1)*34)+(y*2))
+			PokeInt(m\infloor,off+8,((x+1)*34)+((y+1)*2))
+			PokeInt(m\infloor,off+12,(x*34)+((y+1)*2))
+			off=off+16
+		Next
+	Next
+Next
+End Function
+
+Function makeroof()
+For m.map = Each map
+	m\roof=CreateBank(1)
+	off=0
+	a=0
+	For x=15 To 0 Step -1
+		For y=15 To 0 Step -1
+			If PeekByte(m\roofdat,a)=1
+			If BankSize(m\roof)=1
+						m\roof=CreateBank(16)
+						off=0
+					Else
+						off=BankSize(m\roof)
+						ResizeBank(m\roof,BankSize(m\roof)+16)
+					EndIf
+			PokeInt(m\roof,off,1+(x*34)+(y*2))
+			PokeInt(m\roof,off+4,1+((x+1)*34)+(y*2))
+			PokeInt(m\roof,off+8,1+((x+1)*34)+((y+1)*2))
+			PokeInt(m\roof,off+12,1+(x*34)+((y+1)*2))
+			;off=off+16
+			EndIf
+			a=a+1
+			;DebugLog a
+		Next
+	Next
+Next
+End Function
+
+Function makeofloor(X,Y,F,M.map)
+
+			If BankSize(m\outfloor[f])=1
+						m\outfloor[f]=CreateBank(16)
+						off=0
+					Else
+						off=BankSize(m\outfloor[f])
+						ResizeBank(m\outfloor[f],BankSize(m\outfloor[f])+16)
+					EndIf
+			PokeInt(m\outfloor[f],off,(x*34)+(y*2))
+			PokeInt(m\outfloor[f],off+4,((x+1)*34)+(y*2))
+			PokeInt(m\outfloor[f],off+8,((x+1)*34)+((y+1)*2))
+			PokeInt(m\outfloor[f],off+12,(x*34)+((y+1)*2))
+End Function

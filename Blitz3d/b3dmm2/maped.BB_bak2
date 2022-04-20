@@ -1,0 +1,7 @@
+;XLnt-GUI CODE
+Include "XLNT-GUI_V1.84.BB"
+Graphics 800,600,0,1
+GUI_GFXSETUP()
+ 
+
+ 

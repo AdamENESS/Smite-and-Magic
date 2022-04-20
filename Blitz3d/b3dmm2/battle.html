@@ -1,0 +1,672 @@
+<HTML>
+<HEAD>
+<TITLE>battle Documentation </TITLE>
+</HEAD>
+<BODY>
+<h1>battle Documentation </h1>
+</BODY>
+</HTML>
+<H2>Index</H2><ul>
+<li>Functions</li><ul>
+<li><a href=#func_CS_1_1>CS_1_1</a></li>
+<li><a href=#func_CS_1_2>CS_1_2</a></li>
+<li><a href=#func_CS_1_3>CS_1_3</a></li>
+<li><a href=#func_CS_1_4>CS_1_4</a></li>
+<li><a href=#func_CS_1_5>CS_1_5</a></li>
+<li><a href=#func_CS_1_6>CS_1_6</a></li>
+<li><a href=#func_CS_1_7>CS_1_7</a></li>
+<li><a href=#func_CS_2_1>CS_2_1</a></li>
+<li><a href=#func_CS_2_2>CS_2_2</a></li>
+<li><a href=#func_CS_2_3>CS_2_3</a></li>
+<li><a href=#func_CS_2_4>CS_2_4</a></li>
+<li><a href=#func_CS_2_5>CS_2_5</a></li>
+<li><a href=#func_CS_2_6>CS_2_6</a></li>
+<li><a href=#func_CS_2_7>CS_2_7</a></li>
+<li><a href=#func_CS_3_1>CS_3_1</a></li>
+<li><a href=#func_CS_3_2>CS_3_2</a></li>
+<li><a href=#func_CS_3_3>CS_3_3</a></li>
+<li><a href=#func_CS_3_4>CS_3_4</a></li>
+<li><a href=#func_CS_3_5>CS_3_5</a></li>
+<li><a href=#func_CS_3_6>CS_3_6</a></li>
+<li><a href=#func_CS_4_1>CS_4_1</a></li>
+<li><a href=#func_CS_4_2>CS_4_2</a></li>
+<li><a href=#func_CS_4_3>CS_4_3</a></li>
+<li><a href=#func_CS_4_4>CS_4_4</a></li>
+<li><a href=#func_CS_4_5>CS_4_5</a></li>
+<li><a href=#func_CS_4_6>CS_4_6</a></li>
+<li><a href=#func_CS_5_1>CS_5_1</a></li>
+<li><a href=#func_CS_5_2>CS_5_2</a></li>
+<li><a href=#func_CS_5_3>CS_5_3</a></li>
+<li><a href=#func_CS_5_4>CS_5_4</a></li>
+<li><a href=#func_CS_5_5>CS_5_5</a></li>
+<li><a href=#func_CS_6_1>CS_6_1</a></li>
+<li><a href=#func_CS_6_2>CS_6_2</a></li>
+<li><a href=#func_CS_6_3>CS_6_3</a></li>
+<li><a href=#func_CS_6_4>CS_6_4</a></li>
+<li><a href=#func_CS_6_5>CS_6_5</a></li>
+<li><a href=#func_CS_7_1>CS_7_1</a></li>
+<li><a href=#func_CS_7_2>CS_7_2</a></li>
+<li><a href=#func_CS_7_3>CS_7_3</a></li>
+<li><a href=#func_CS_7_4>CS_7_4</a></li>
+<li><a href=#func_CS_8_1>CS_8_1</a></li>
+<li><a href=#func_CS_8_2>CS_8_2</a></li>
+<li><a href=#func_CS_8_3>CS_8_3</a></li>
+<li><a href=#func_CS_8_4>CS_8_4</a></li>
+<li><a href=#func_CS_9_1>CS_9_1</a></li>
+<li><a href=#func_CS_9_2>CS_9_2</a></li>
+<li><a href=#func_CS_9_3>CS_9_3</a></li>
+<li><a href=#func_CS_9_4>CS_9_4</a></li>
+<li><a href=#func_Create_clerical>Create_clerical</a></li>
+<li><a href=#func_SS_1_1>SS_1_1</a></li>
+<li><a href=#func_SS_1_2>SS_1_2</a></li>
+<li><a href=#func_SS_1_3>SS_1_3</a></li>
+<li><a href=#func_SS_1_4>SS_1_4</a></li>
+<li><a href=#func_SS_1_5>SS_1_5</a></li>
+<li><a href=#func_SS_1_6>SS_1_6</a></li>
+<li><a href=#func_SS_1_7>SS_1_7</a></li>
+<li><a href=#func_SS_2_1>SS_2_1</a></li>
+<li><a href=#func_SS_2_2>SS_2_2</a></li>
+<li><a href=#func_SS_2_3>SS_2_3</a></li>
+<li><a href=#func_SS_2_4>SS_2_4</a></li>
+<li><a href=#func_SS_2_5>SS_2_5</a></li>
+<li><a href=#func_SS_2_6>SS_2_6</a></li>
+<li><a href=#func_SS_2_7>SS_2_7</a></li>
+<li><a href=#func_SS_3_1>SS_3_1</a></li>
+<li><a href=#func_SS_3_2>SS_3_2</a></li>
+<li><a href=#func_SS_3_3>SS_3_3</a></li>
+<li><a href=#func_SS_3_4>SS_3_4</a></li>
+<li><a href=#func_SS_3_5>SS_3_5</a></li>
+<li><a href=#func_SS_3_6>SS_3_6</a></li>
+<li><a href=#func_SS_4_1>SS_4_1</a></li>
+<li><a href=#func_SS_4_2>SS_4_2</a></li>
+<li><a href=#func_SS_4_3>SS_4_3</a></li>
+<li><a href=#func_SS_4_4>SS_4_4</a></li>
+<li><a href=#func_SS_4_5>SS_4_5</a></li>
+<li><a href=#func_SS_4_6>SS_4_6</a></li>
+<li><a href=#func_SS_5_1>SS_5_1</a></li>
+<li><a href=#func_SS_5_2>SS_5_2</a></li>
+<li><a href=#func_SS_5_3>SS_5_3</a></li>
+<li><a href=#func_SS_5_4>SS_5_4</a></li>
+<li><a href=#func_SS_5_5>SS_5_5</a></li>
+<li><a href=#func_SS_6_1>SS_6_1</a></li>
+<li><a href=#func_SS_6_2>SS_6_2</a></li>
+<li><a href=#func_SS_6_3>SS_6_3</a></li>
+<li><a href=#func_SS_6_4>SS_6_4</a></li>
+<li><a href=#func_SS_6_5>SS_6_5</a></li>
+<li><a href=#func_SS_7_1>SS_7_1</a></li>
+<li><a href=#func_SS_7_2>SS_7_2</a></li>
+<li><a href=#func_SS_7_3>SS_7_3</a></li>
+<li><a href=#func_SS_7_4>SS_7_4</a></li>
+<li><a href=#func_SS_8_1>SS_8_1</a></li>
+<li><a href=#func_SS_8_2>SS_8_2</a></li>
+<li><a href=#func_SS_8_3>SS_8_3</a></li>
+<li><a href=#func_SS_8_4>SS_8_4</a></li>
+<li><a href=#func_SS_9_1>SS_9_1</a></li>
+<li><a href=#func_SS_9_2>SS_9_2</a></li>
+<li><a href=#func_SS_9_3>SS_9_3</a></li>
+<li><a href=#func_SS_9_4>SS_9_4</a></li>
+<li><a href=#func_addmonst>addmonst</a></li>
+<li><a href=#func_attack>attack</a></li>
+<li><a href=#func_beta_text>beta_text</a></li>
+<li><a href=#func_cast>cast</a></li>
+<li><a href=#func_check_item>check_item</a></li>
+<li><a href=#func_choose_target>choose_target</a></li>
+<li><a href=#func_create_sorceror>create_sorceror</a></li>
+<li><a href=#func_encasement>encasement</a></li>
+<li><a href=#func_hex2int>hex2int</a></li>
+<li><a href=#func_init>init</a></li>
+<li><a href=#func_load_item>load_item</a></li>
+<li><a href=#func_load_monster>load_monster</a></li>
+<li><a href=#func_load_roster>load_roster</a></li>
+<li><a href=#func_mainbattloop>mainbattloop</a></li>
+<li><a href=#func_mattack>mattack</a></li>
+<li><a href=#func_menu>menu</a></li>
+<li><a href=#func_showtext>showtext</a></li>
+<li><a href=#func_updatemonsters>updatemonsters</a></li>
+</ul>
+<li>Types</li><ul>
+<li><a href=#type_ORDER>ORDER</a></li>
+<li><a href=#type_Sorceror>Sorceror</a></li>
+<li><a href=#type_battlemonst>battlemonst</a></li>
+<li><a href=#type_character>character</a></li>
+<li><a href=#type_clerical>clerical</a></li>
+<li><a href=#type_hireling>hireling</a></li>
+<li><a href=#type_item>item</a></li>
+<li><a href=#type_monster>monster</a></li>
+<li><a href=#type_party>party</a></li>
+</ul>
+</ul>
+<H2>Functions</H2>
+<a name=func_CS_1_1><H3> CS_1_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ spells and monster abilities. Clerical Spells Level 1
+</blockquote>
+<a name=func_CS_1_2><H3> CS_1_2(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_1_3><H3> CS_1_3(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_1_4><H3> CS_1_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_1_5><H3> CS_1_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_1_6><H3> CS_1_6(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_1_7><H3> CS_1_7(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_2_1><H3> CS_2_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ Level 2
+</blockquote>
+<a name=func_CS_2_2><H3> CS_2_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_2_3><H3> CS_2_3(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_2_4><H3> CS_2_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_2_5><H3> CS_2_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_2_6><H3> CS_2_6(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_2_7><H3> CS_2_7(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_3_1><H3> CS_3_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ Level 3
+</blockquote>
+<a name=func_CS_3_2><H3> CS_3_2(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_3_3><H3> CS_3_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_3_4><H3> CS_3_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_3_5><H3> CS_3_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_3_6><H3> CS_3_6(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_4_1><H3> CS_4_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_4_2><H3> CS_4_2(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_4_3><H3> CS_4_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_4_4><H3> CS_4_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_4_5><H3> CS_4_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_4_6><H3> CS_4_6(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_5_1><H3> CS_5_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 5 cleric spells
+</blockquote>
+<a name=func_CS_5_2><H3> CS_5_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_5_3><H3> CS_5_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_5_4><H3> CS_5_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_5_5><H3> CS_5_5(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_6_1><H3> CS_6_1(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 6 cleric spells
+</blockquote>
+<a name=func_CS_6_2><H3> CS_6_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_6_3><H3> CS_6_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_6_4><H3> CS_6_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_6_5><H3> CS_6_5(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_7_1><H3> CS_7_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 7 cleric spells
+</blockquote>
+<a name=func_CS_7_2><H3> CS_7_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_7_3><H3> CS_7_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_7_4><H3> CS_7_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_8_1><H3> CS_8_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 8 cleric spells
+</blockquote>
+<a name=func_CS_8_2><H3> CS_8_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_8_3><H3> CS_8_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_8_4><H3> CS_8_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_9_1><H3> CS_9_1(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 9 cleric spells
+</blockquote>
+<a name=func_CS_9_2><H3> CS_9_2(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_9_3><H3> CS_9_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_CS_9_4><H3> CS_9_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_Create_clerical><H3> Create_clerical()</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_1_1><H3> SS_1_1(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ Sorceror Spells Level 1
+</blockquote>
+<a name=func_SS_1_2><H3> SS_1_2(castert)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_1_3><H3> SS_1_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_1_4><H3> SS_1_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_1_5><H3> SS_1_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_1_6><H3> SS_1_6(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_1_7><H3> SS_1_7(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_2_1><H3> SS_2_1(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_2_2><H3> SS_2_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_2_3><H3> SS_2_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_2_4><H3> SS_2_4(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_2_5><H3> SS_2_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_2_6><H3> SS_2_6(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_2_7><H3> SS_2_7(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_3_1><H3> SS_3_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_3_2><H3> SS_3_2(caster,x,y)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_3_3><H3> SS_3_3(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_3_4><H3> SS_3_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_3_5><H3> SS_3_5(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_3_6><H3> SS_3_6(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_4_1><H3> SS_4_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 4
+</blockquote>
+<a name=func_SS_4_2><H3> SS_4_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_4_3><H3> SS_4_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_4_4><H3> SS_4_4(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_4_5><H3> SS_4_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+		party.guard=1
+</blockquote>
+<a name=func_SS_4_6><H3> SS_4_6(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+		party.shield=1
+</blockquote>
+<a name=func_SS_5_1><H3> SS_5_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 5
+</blockquote>
+<a name=func_SS_5_2><H3> SS_5_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_5_3><H3> SS_5_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_5_4><H3> SS_5_4(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_5_5><H3> SS_5_5(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_6_1><H3> SS_6_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 6
+</blockquote>
+<a name=func_SS_6_2><H3> SS_6_2(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_6_3><H3> SS_6_3(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_6_4><H3> SS_6_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_6_5><H3> SS_6_5(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_7_1><H3> SS_7_1(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 7
+</blockquote>
+<a name=func_SS_7_2><H3> SS_7_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_7_3><H3> SS_7_3(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_7_4><H3> SS_7_4(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_8_1><H3> SS_8_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 8
+</blockquote>
+<a name=func_SS_8_2><H3> SS_8_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_8_3><H3> SS_8_3(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_8_4><H3> SS_8_4(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_9_1><H3> SS_9_1(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+ level 9
+</blockquote>
+<a name=func_SS_9_2><H3> SS_9_2(caster,target)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_9_3><H3> SS_9_3(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_SS_9_4><H3> SS_9_4(caster)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_addmonst><H3> addmonst(realid,hp)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_attack><H3> attack(Chara,Monst,what)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_beta_text><H3> beta_text()</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_cast><H3> cast(chara)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_check_item><H3> check_item(Chara,kind)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_choose_target><H3> choose_target(guys=0)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_create_sorceror><H3> create_sorceror()</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_encasement><H3> encasement()</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_hex2int><H3> hex2int(String$)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_init><H3> init()</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_load_item><H3> load_item(file$)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_load_monster><H3> load_monster(file$)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_load_roster><H3> load_roster(file$)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_mainbattloop><H3> mainbattloop()</H3>
+<b>Return-type:</b> Integer<br />
+<b>Description:</b><blockquote>
+beta_Text()
+</blockquote>
+<a name=func_mattack><H3> mattack(monst,chara,R=255,G=0,B=0)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_menu><H3> menu(what,ID)</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_showtext><H3> showtext()</H3>
+<b>Return-type:</b> Integer<br />
+<a name=func_updatemonsters><H3> updatemonsters(MONST)</H3>
+<b>Return-type:</b> Integer<br />
+<H2>Types</H2>
+<a name=type_ORDER><H3>ORDER</H3>
+<b>Fields:</b> <ul>
+<li>posistion</li>
+<li>what</li>
+<li>ID</li>
+<li>name$</li>
+</ul>
+<b>Description:</b><blockquote>
+ might not be needed in it when incorperated to the main game.	CameraViewport camera,0,0,GraphicsWidth()-200,GraphicsHeight()-100
+</blockquote>
+<a name=type_Sorceror><H3>Sorceror</H3>
+<b>Fields:</b> <ul>
+<li>ID</li>
+<li>Level</li>
+<li>Spell</li>
+<li>Name$</li>
+<li>Effect ; 0 is all</li>
+<li>Damage[2]</li>
+<li>Cost[2]</li>
+<li>Desc$[10]</li>
+<li>combat</li>
+</ul>
+<a name=type_battlemonst><H3>battlemonst</H3>
+<b>Fields:</b> <ul>
+<li>id</li>
+<li>realID</li>
+<li>name$</li>
+<li>HP</li>
+<li>ohp</li>
+<li>SP</li>
+<li>AC</li>
+<li>Pabil</li>
+<li>SAbil</li>
+<li>Oabil</li>
+<li>Abil1</li>
+<li>Abil2</li>
+<li>Exper</li>
+<li>oexp</li>
+<li>Gold</li>
+<li>gems</li>
+<li>MRes</li>
+<li>damage</li>
+<li>Picture</li>
+<li>Undead</li>
+<li>Archer</li>
+<li>flee</li>
+<li>speed</li>
+<li>amount=1</li>
+<li>entity</li>
+<li>posX</li>
+<li>posY</li>
+<li>status$</li>
+<li>asleep</li>
+<li>dead</li>
+<li>erad</li>
+<li>posion</li>
+<li>disease</li>
+<li>stones</li>
+<li>paralysed</li>
+<li>silence</li>
+<li>Fireencased=0</li>
+<li>waterencased=0</li>
+<li>Earthencased=0</li>
+<li>airencased=0</li>
+</ul>
+<a name=type_character><H3>character</H3>
+<b>Fields:</b> <ul>
+<li>name$</li>
+<li>race</li>
+<li>class</li>
+<li>sex</li>
+<li>allignment</li>
+<li>MGT</li>
+<li>INTE</li>
+<li>PER</li>
+<li>ENDU</li>
+<li>SPD</li>
+<li>ACC</li>
+<li>LCK</li>
+<li>HP</li>
+<li>MHP</li>
+<li>SP</li>
+<li>MSP</li>
+<li>AC</li>
+<li>THV</li>
+<li>backpack[6]</li>
+<li>equiped[6]</li>
+<li>backplus[6]</li>
+<li>equiplus[6]</li>
+<li>backefft[6]</li>
+<li>equiefft[6]</li>
+<li>GOLD</li>
+<li>Exper</li>
+<li>GEMS</li>
+<li>FOOD</li>
+<li>Skill[2]</li>
+<li>SPLVL</li>
+<li>Spell[48]</li>
+<li>ID</li>
+<li>age</li>
+<li>Town</li>
+<li>LVL</li>
+<li>day</li>
+<li>plus</li>
+<li>entity</li>
+<li>battle[9]</li>
+<li>asleep</li>
+<li>dead</li>
+<li>erad</li>
+<li>posion</li>
+<li>disease</li>
+<li>stones</li>
+<li>silence</li>
+<li>paralysed</li>
+<li>tMGT</li>
+<li>tINTE</li>
+<li>tPER</li>
+<li>tENDU</li>
+<li>tSPD</li>
+<li>tACC</li>
+<li>tLCK ; temp effects</li>
+<li>tHP</li>
+<li>tMHP</li>
+<li>tSP</li>
+<li>tMSP</li>
+</ul>
+<a name=type_clerical><H3>clerical</H3>
+<b>Fields:</b> <ul>
+<li>ID</li>
+<li>Level</li>
+<li>Spell</li>
+<li>Name$</li>
+<li>Effect</li>
+<li>Damage[2]</li>
+<li>Cost[2]</li>
+<li>Desc$[10]</li>
+<li>combat</li>
+</ul>
+<a name=type_hireling><H3>hireling</H3>
+<b>Fields:</b> <ul>
+<li>name$</li>
+<li>race</li>
+<li>class</li>
+<li>sex</li>
+<li>allignment</li>
+<li>MGT</li>
+<li>INTE</li>
+<li>PER</li>
+<li>ENDU</li>
+<li>SPD</li>
+<li>ACC</li>
+<li>LCK</li>
+<li>HP</li>
+<li>MHP</li>
+<li>SP</li>
+<li>MSP</li>
+<li>AC</li>
+<li>THV</li>
+<li>backpack[6]</li>
+<li>equiped[6]</li>
+<li>backplus[6]</li>
+<li>equiplus[6]</li>
+<li>backefft[6]</li>
+<li>equiefft[6]</li>
+<li>Cost</li>
+<li>Exper</li>
+<li>GEMS</li>
+<li>FOOD</li>
+<li>Skill[2]</li>
+<li>SPLVL</li>
+<li>Spell[48]</li>
+<li>ID</li>
+<li>age</li>
+<li>Town</li>
+<li>LVL</li>
+<li>day</li>
+<li>plus</li>
+<li>entity</li>
+<li>asleep</li>
+<li>dead</li>
+<li>erad</li>
+<li>posion</li>
+<li>disease</li>
+<li>stones</li>
+<li>paralysed</li>
+<li>tMGT</li>
+<li>tINTE</li>
+<li>tPER</li>
+<li>tENDU</li>
+<li>tSPD</li>
+<li>tACC</li>
+<li>tLCK</li>
+<li>tHP</li>
+<li>tMHP</li>
+<li>tSP</li>
+<li>tMSP</li>
+</ul>
+<a name=type_item><H3>item</H3>
+<b>Fields:</b> <ul>
+<li>name$</li>
+<li>Value</li>
+<li>Damage</li>
+<li>ID</li>
+<li>Usableby</li>
+<li>usa[8]</li>
+<li>effect$[2]; 0 is type 1 amount</li>
+<li>bonus$[2] ; 0 is type 1 amount</li>
+</ul>
+<a name=type_monster><H3>monster</H3>
+<b>Fields:</b> <ul>
+<li>id</li>
+<li>name$</li>
+<li>HP</li>
+<li>ohp</li>
+<li>SP</li>
+<li>AC</li>
+<li>Pabil</li>
+<li>SAbil</li>
+<li>Oabil</li>
+<li>Abil1</li>
+<li>Abil2</li>
+<li>Exper</li>
+<li>oexp</li>
+<li>Gold</li>
+<li>gems</li>
+<li>MRes</li>
+<li>damage</li>
+<li>Picture</li>
+<li>Undead</li>
+<li>Archer</li>
+<li>flee</li>
+<li>speed</li>
+<li>Colour</li>
+</ul>
+<a name=type_party><H3>party</H3>
+<b>Fields:</b> <ul>
+<li>Char[8]</li>
+<li>light=0</li>
+<li>protmag=0</li>
+<li>protelm=0</li>
+<li>shield=0</li>
+<li>shelter=0</li>
+<li>wizard=0</li>
+<li>eagle=0</li>
+<li>Floating=0</li>
+<li>invis=0</li>
+<li>dambonus=0</li>
+</ul>

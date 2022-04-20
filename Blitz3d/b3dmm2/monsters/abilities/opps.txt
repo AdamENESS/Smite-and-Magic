@@ -1,0 +1,38 @@
+00000000	0	00 - NOTHING!!!!
+
+00000001	1	01 - loose gold
+00000010	2	02 - loose gems
+00000011	3	03 - Poision
+00000100	4	04 - Disease
+00000101	5	05 - Sleep
+00000110	6	06 - Curse
+00000111	7	07 - Silence
+00001000	8	08 - Paralyse
+00001001	9	09 - Collapse
+00001010	10	0a - Kills (touch of DEATH)
+00001011	11	0B - Stones (magic mushrooms) 
+00001100	12	0C - ERADICATE!!!!
+00001101	13	0D - Steals an Item(thief)
+00001110	14	0E - Steals ALL (THIEF)
+00001111	15	0F - Steals food
+00010000	16	10 - Steals all Food
+00010001	17	11 - loose all GOLD
+00010010	18	12 - Loose all GEMS
+00010011	19	13 - Loose all FOOD GEMS GOLD
+00010100	20	14 - Ages non perm?
+00010101	21	15 - Ages (again?) PERM
+00010110	22	16 - loose 1 level
+00010111	23	17 - Halfs all Stats (rounds up)
+00011000	24	18 - gives you Personallity
+00011001	25	19 - loose experience levels (says "lost his/her mind")
+00011010	26	1A - halves experience level
+00011011	27	1b - loose Experience
+00011100	28	1c - Items Scrambled
+00011101	29	1d - Spell points (all) loose
+00011110	30	1e - Assasinates
+00011111	31	1f - Random Effect (off all above)
+
+able to be used with above
+00100000	32	20 - UNKOWN (unused?)
+01000000	64	40 - Archer
+10000000	128	80 - Undead
