@@ -28,7 +28,9 @@ namespace SmitED
 		bool bLoading;
 		std::string sWorkingFolder;
 		
-
+		std::filesystem::directory_iterator fileList;
+		std::vector<std::string> m_vecValidFiles;
 		static std::map<std::string, SFileType*> s_mapFileTypeMatcher;
+		bool validExtension(const std::filesystem::path& param1);
 	};
 }

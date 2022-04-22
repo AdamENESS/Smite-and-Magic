@@ -1,6 +1,6 @@
 #include <imgui.h>
-#include <imgui_impl_opengl3.h>
-#include <imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
+#include <backends/imgui_impl_glfw.h>
 #include <stdio.h>
 #include <iostream>
 #include <vector>
@@ -10,8 +10,7 @@
 // Include glfw3.h after our OpenGL definitions
 #include <GLFW/glfw3.h>
 
-#include "CSmitEDPak.h"
-std::map<std::string, SmitED::CPak*> g_pakFiles;
+//std::map<std::string, SmitED::CPak*> g_pakFiles;
 #include "imgui/ImGuiManager.h"
 SmitED::ImGuiUIManager* g_pManager;
 
@@ -28,6 +27,7 @@ int main(int, char**)
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
+
 #if __APPLE__
 	// GL 3.2 + GLSL 150
 	const char* glsl_version = "#version 150";
@@ -43,6 +43,7 @@ int main(int, char**)
 	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 #endif
+	
 	GLFWwindow* window = glfwCreateWindow(1280, 720, "SmitED", NULL, NULL);
 	if (window == NULL)
 		return 1;
@@ -61,7 +62,6 @@ int main(int, char**)
 	glfwGetFramebufferSize(window, &screen_width, &screen_height);
 	glViewport(0, 0, screen_width, screen_height);
 	
-
 	g_pManager = new SmitED::ImGuiUIManager(window);
 
 	while (!glfwWindowShouldClose(window))
@@ -87,7 +87,5 @@ int main(int, char**)
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
-	
-	
 	return 0;
 }

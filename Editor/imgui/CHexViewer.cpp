@@ -1,6 +1,8 @@
 #include "CHexViewer.h"
 
 SmitED::CHexViewer::CHexViewer()
+	:pData(nullptr)
+	, uiDataSize(0)
 {
 	memEdit = new MemoryEditor();
 }
@@ -8,8 +10,8 @@ SmitED::CHexViewer::CHexViewer()
 void SmitED::CHexViewer::update()
 {
 	begin();
-	
-	memEdit->DrawContents(pData, uiDataSize);
+	if (uiDataSize !=0)
+		memEdit->DrawContents(pData, uiDataSize);
 	end();
 }
 
